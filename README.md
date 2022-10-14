@@ -18,4 +18,4 @@ SAB
   # how many questions can SAB accomodate
   # how many ppl can SAB accomodate
   # how many languages can SAB use
-  # chap 3 ilalagay kung saan siya ilalagay. In our case, we agreed to placing SAB in the registrar's office
+  # chap 4 ilalagay kung saan siya ilalagay. In our case, we agreed to placing SAB in the registrar's office
