@@ -50,10 +50,6 @@ while True:
                 bigkas('Ako po ang Student Assistant Bot o si SAB.')
                 continue
 
-            # if 'unsa' in salita and 'imong' in salita and 'pangalan' in salita:
-                playsound('test.mp3')
-                continue
-
             if 'what' in salita and 'name' in salita:
                 speak('I am the Student Assistant Bot or you can call me SAB for short.')
                 continue
