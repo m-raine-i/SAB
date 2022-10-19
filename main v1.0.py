@@ -89,7 +89,7 @@ if __name__ == '__main__':
         print("Measurement stopped by User")
         GPIO.cleanup()
 
-while True:
+while True: #line 92 seems optional, if anything doesnt work try deleting this part
     with sr.Microphone() as source:
         print('nakikinig')
         audio=sr.Recognizer().listen(source)
