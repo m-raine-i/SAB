@@ -82,7 +82,7 @@ if __name__ == '__main__':
             if dist >= 30:
                 speak('Hi! How may I help you today?')
                 # bigkas('Magandang araw! Ano ang maitutulong ko sa inyo ngayong araw?')
-                continue
+                pass
 
         # Reset by pressing CTRL + C
     except KeyboardInterrupt:
