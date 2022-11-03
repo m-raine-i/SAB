@@ -105,6 +105,7 @@ while True: #line 92 seems optional, if anything doesnt work try deleting this p
             
             if 'how' in salita and 'you' in salita:
                 speak('Good day! I am fine. How may I help you today?')
+              continue
 
             if 'ano' in salita and 'pangalan' in salita:
                 bigkas('Ako po ang Student Assistant Bot o si SAB.')
