@@ -1,7 +1,6 @@
 from fileinput import close
 from gtts import gTTS
 from playsound import playsound
-from time import sleep
 import random
 import os
 import speech_recognition as sr
