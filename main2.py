@@ -50,7 +50,7 @@ while True:
     print("nakikinig...")
     salita = get_audio()
 
-    WAKE_KEYWORD = ["saab", "sad", "sud", "sod", "sap"]
+    WAKE_KEYWORD = ["saab", "sad", "sud", "sod", "sap", "sam"]
     for WAKE in WAKE_KEYWORD:
         if WAKE in salita:
             if salita.count(WAKE) > 0:
