@@ -5,6 +5,7 @@ import random
 import os
 import speech_recognition as sr
 import string
+import time
 
 def get_random_string(length):
     letters = string.ascii_lowercase
@@ -57,68 +58,65 @@ for WAKE in WAKE_KEYWORD:
                 print("iniintindi...")
                 salita = get_audio()
 
-                if 'kumusta' in salita or 'kamusta' in salita:
-                    bigkas('Ako po ay nasa mabuting kalagayan')
-                    continue
-
-                if 'how' in salita and 'you' in salita:
-                    speak('Good day! I am fine. How may I help you today?')
-                    continue
-
-                if 'ano' in salita and 'pangalan' in salita:
-                    bigkas('Ako po ang Student Assistant Bot o si SAB.')
-                    continue
-
-                if 'what' in salita and 'name' in salita:
-                    speak('I am the Student Assistant Bot or you can call me SAB for short.')
-                    continue
-
-                if 'saan' in salita and 'opisina' in salita:
-                    bigkas('Sa ikatlong palapag ng gusali.')
-                    continue
-
-                if 'where' in salita and 'office' in salita:
-                    speak("You can find the Registrar's office at the third floor of this building.")
-                    continue
-
-                if 'maraming' in salita or 'salamat' in salita:
-                    bigkas('Walang anuman!')
-                    continue
-
-                if 'thank' in salita and 'you' in salita:
-                    speak('No problem!')
-                    continue
-
-                if 'document' in salita:
-                    url = 'test.png'
+                if 'request' in salita and 'document' in salita:
+                    bigkas("Scan ang QR code.")
+                    time.sleep(0.5)
+                    url = 'Appointment System.png'
                     os.startfile(url)
-                    speak('Please scan the QR Code.')
+                    time.sleep(0.5)
+                    bigkas("Pagkatapos mag-log in, piliin ang 'Request Appointment' at ang 'Avail PUP Services'. Magtakda ng appointment sa 'Institute of Technology Registrar and Admission'. Maaaring maghintay na lamang ng dalawa hanggang tatlong araw upang maiproseso ang iyong dokumento. Maraming salamat.")
                     continue
 
-                if 'assignment' in salita:
-                    url = 'test1.png'
+                if 'apppointment' in salita:
+                    bigkas("Scan ang QR code.")
+                    time.sleep(0.5)
+                    url = 'Appointment System.png'
                     os.startfile(url)
-                    speak('Please scan the QR Code.')
+                    time.sleep(0.5)
+                    bigkas("Pagkatapos mag-log in, piliin ang 'Request Appointment' at ang 'Avail PUP Services'. Magtakda ng appointment sa 'Institute of Technology Registrar and Admission'. Maaaring maghintay na lamang ng dalawa hanggang tatlong araw upang maiproseso ang iyong dokumento. Maraming salamat.")
+                    continue
+
+                if 'completion' in salita and 'grades' in salita:
+                    bigkas("Scan ang QR code.")
+                    time.sleep(0.5)
+                    url = 'Completion of Grades Form.png'
+                    os.startfile(url)
+                    time.sleep(0.5)
+                    bigkas("Maaaring mag-scan din sa QR code na ito para sa mga alituntunin na kailangang tandaan. Maraming salamat.")
+                    url = 'Completion of Grades.png'
+                    os.startfile(url)
+                    continue
+
+                if 'ace' in salita and 'add' in salita and 'subject' in salita:
+                    bigkas("Scan ang QR code.")
+                    time.sleep(0.5)
+                    url = 'ACE Form ADD.png'
+                    os.startfile(url)
+                    time.sleep(0.5)
+                    bigkas("Maaaring sagutan ang ACE Form para sa pagdagdag ng mga asignatura. Maraming salamat.")
+                    continue
+
+                if 'ace' in salita and 'change' in salita and 'subject' in salita:
+                    bigkas("Scan ang QR code.")
+                    time.sleep(0.5)
+                    url = 'ACE Form CHANGE.png'
+                    os.startfile(url)
+                    time.sleep(0.5)
+                    bigkas("Maaaring sagutan ang ACE Form upang magbago ng ilang asignatura o ang schedule. Maraming salamat.")
+                    continue
+
+                if 'ace' in salita and 'withdrawal' in salita or 'withdraw' in salita:
+                    bigkas("Scan ang QR code.")
+                    time.sleep(0.5)
+                    url = 'ACE Form WITHDRAWAL.png'
+                    os.startfile(url)
+                    time.sleep(0.5)
+                    bigkas("Maaaring sagutan ang ACE Form para sa pag-withdraw ng mga asignatura. Maraming salamat.")
+                    continue
+
+                if 'leave' in salita and 'absence' in salita:
+                    bigkas("Maaaring gumawa ng narrative report tungkol sa iyong rason sa pag-file ng Leave of Absence. Ito ay dapat naka-address kay Engineer Ramir M Cruz, ang Dean. Ang narrative report ay dapat ibigay sa Dean at sa kinauukulang Chairperson ng Institute of Technology. Si Engineer Frescian C Ruiz ay ang Chairperson ng Engineering Technology at si Josephine M Dela Isla ang Chairperson ng Management Technology.")
                     continue
 
                 else:
                     bigkas('Di kita maintindihan')
-
-                #di pala pwede ito, magiging random at iisa lang ang response XD,
-                #gawa ako iba for experimental purposes
-                """KAMUSTA_STRS = ["kamusta ka", "how are you", "kamusta"]
-                for phrase in CALENDAR_STRS:
-                    if phrase in text:
-                        date = get_date(text)
-                        if date:
-                            get_events(date, SERVICE)
-                        else:
-                            speak("I don't understand")
-
-                NOTE_STRS = ["make a note", "write this down", "remember this"]
-                for phrase in NOTE_STRS:
-                    if phrase in text:
-                        speak("What would you like me to write down?")
-                        note_text = get_audio()
-                        note(note_text)
-                        speak("I've made a note of that.")"""
