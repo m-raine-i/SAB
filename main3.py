@@ -67,7 +67,7 @@ for WAKE in WAKE_KEYWORD:
                     bigkas("Pagkatapos mag-log in, piliin ang 'Request Appointment' at ang 'Avail PUP Services'. Magtakda ng appointment sa 'Institute of Technology Registrar and Admission'. Maaaring maghintay na lamang ng dalawa hanggang tatlong araw upang maiproseso ang iyong dokumento. Maraming salamat.")
                     continue
 
-                if 'apppointment' in salita:
+                if 'appointment' in salita:
                     bigkas("Scan ang QR code.")
                     time.sleep(0.5)
                     url = 'Appointment System.png'
