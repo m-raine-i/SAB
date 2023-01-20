@@ -5,6 +5,7 @@ import random
 import os
 import speech_recognition as sr
 import string
+import time
 
 def get_random_string(length):
     letters = string.ascii_lowercase
@@ -43,72 +44,78 @@ def get_audio():
 
     return said.lower()
 
-
 print("Start")
+print("Listening...")
+speak("Good day! How may I help you?")
+salita = get_audio()
 
-while True:
-    print("nakikinig...")
-    salita = get_audio()
+WAKE_KEYWORD = ["saab", "sad", "sud", "sod", "sap", "sam"]
+for WAKE in WAKE_KEYWORD:
+    if WAKE in salita:
+        if salita.count(WAKE) > 0:
+            speak("Good day! How may I help you?")
 
-    WAKE_KEYWORD = ["saab", "sad", "sud", "sod", "sap", "sam"]
-    for WAKE in WAKE_KEYWORD:
-        if WAKE in salita:
-            if salita.count(WAKE) > 0:
-                bigkas("Magandang araw iskolar! Ano po ang maitutulong ko?") #can be replaced by LED lighting up w/ a 'ping(?)' sound
-                print("iniintindi...")
+    while True:
+                print("Understanding....")
                 salita = get_audio()
 
-                """if 'kamusta' in salita and 'ka' in salita:
-                    bigkas('Magandang araw! Ako po ay nasa mabuting kalagayan. Ano po ang maitutulong ko sa inyo ngayon?')
+                if 'request' in salita and 'documents' in salita:
+                    speak("Please scan the QR code.")
+                    time.sleep(0.2)
+                    url = 'Appointment System.png'
+                    os.startfile(url)
+                    time.sleep(0.5)
+                    speak("After logging in, choose the 'Request Appointment' and 'Avail P.U.P Services'. Set an appointment to the 'Institute of Technology Registrar and Admission'. After setting an appointment, please wait for two to three days to process your documents. Thank you.")
                     continue
 
-                if 'how' in salita and 'you' in salita:
-                    speak('Good day! I am fine. How may I help you today?')
-                    continue"""
-
-                if 'ano' in salita and 'pangalan' in salita:
-                    bigkas('Ako po ang Student Assistant Bot o si SAB.')
+                if 'appointment' in salita:
+                    speak("Please scan the QR code.")
+                    time.sleep(0.2)
+                    url = 'Appointment System.png'
+                    os.startfile(url)
+                    time.sleep(0.5)
+                    speak("After logging in, choose the 'Request Appointment' and 'Avail P.U.P Services'. Set an appointment to the 'Institute of Technology Registrar and Admission'. After setting an appointment, please wait for two to three days to process your documents. Thank you.")
                     continue
 
-                if 'what' in salita and 'name' in salita:
-                    speak('I am the Student Assistant Bot or you can call me SAB for short.')
+                if 'completion' in salita and 'grades' in salita:
+                    speak("Please scan the QR code.")
+                    time.sleep(0.2)
+                    url = 'Completion of Grades Form.png'
+                    os.startfile(url)
+                    time.sleep(0.5)
+                    speak("You may scan this QR code and take note of all the guidelines to follow. Thank you.")
                     continue
 
-                if 'saan' in salita and 'opisina' in salita:
-                    bigkas('Sa ikatlong palapag ng gusali.')
+                if 'ace' in salita and 'add' in salita and 'subject' in salita:
+                    speak("Please scan the QR code.")
+                    time.sleep(0.2)
+                    url = 'ACE Form ADD.png'
+                    os.startfile(url)
+                    time.sleep(0.5)
+                    speak("You may answer this form by filling out the subjects that you need to add during the adjustment period. Thank you.")
                     continue
 
-                if 'where' in salita and 'office' in salita:
-                    speak("You can find the Registrar's office at the third floor of this building.")
+                if 'ace' in salita and 'change' in salita and 'subject' in salita:
+                    speak("Please scan the QR code.")
+                    time.sleep(0.2)
+                    url = 'ACE Form CHANGE.png'
+                    os.startfile(url)
+                    time.sleep(0.5)
+                    speak("You may answer this form by filling out the subjects that you need to change during the adjustment period. Thank you.")
                     continue
 
-                if 'maraming' in salita or 'salamat' in salita:
-                    bigkas('Walang anuman!')
+                if 'ace' in salita and 'withdrawal' in salita or 'withdraw' in salita:
+                    speak("Please scan the QR code.")
+                    time.sleep(0.2)
+                    url = 'ACE Form WITHDRAWAL.png'
+                    os.startfile(url)
+                    time.sleep(0.5)
+                    speak("You may answer this form by filling out the subjects that you want to withdaw during the adjustment period. Thank you.")
                     continue
 
-                if 'thank' in salita and 'you' in salita:
-                    speak('No problem!')
+                if 'leave' in salita and 'absence' in salita:
+                    speak("You may write a narrative report about your reason on why you are filling a Leave of Absence. Your report should be addressed to the Dean, Engineer Ramir M Cruz. You may submit your narrative report to the Dean and to your respective Chairperson. Engineer Frescian C Ruiz is the Chairperson of the Engineering Technology while Josephine M Dela Isla is the Chairperson of the Management Technology. Thank you.")
                     continue
 
                 else:
-                    bigkas('Di kita maintindihan')
-
-
-                #di pala pwede ito, magiging random at iisa lang ang response XD,
-                #gawa ako iba for experimental purposes
-                """KAMUSTA_STRS = ["kamusta ka", "how are you", "kamusta"]
-                for phrase in CALENDAR_STRS:
-                    if phrase in text:
-                        date = get_date(text)
-                        if date:
-                            get_events(date, SERVICE)
-                        else:
-                            speak("I don't understand")
-
-                NOTE_STRS = ["make a note", "write this down", "remember this"]
-                for phrase in NOTE_STRS:
-                    if phrase in text:
-                        speak("What would you like me to write down?")
-                        note_text = get_audio()
-                        note(note_text)
-                        speak("I've made a note of that.")"""
+                    print('I cannot understand you.')
