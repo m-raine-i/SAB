@@ -1,0 +1,8 @@
+make bot spit out image from json file using file name. reference to rain's contribution. 
+make a new tag for it under 'responses', if no file name present, return null/empty string in tag
+
+'patterns' tag in code was intended to create a condition where if the 'pattern' of the intent 'thanks' is present, 
+the system replies a random response from intent 'thanks' and automatically closes.
+
+also add GUI into the system wherein a UI pops up when one accesses the bot. 
+much better if the response of the user and bot can be shown in UI when bot is in use.
