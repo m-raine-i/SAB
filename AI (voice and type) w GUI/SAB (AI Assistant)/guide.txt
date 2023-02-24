@@ -6,3 +6,5 @@ the system replies a random response from intent 'thanks' and automatically clos
 
 also add GUI into the system wherein a UI pops up when one accesses the bot. 
 much better if the response of the user and bot can be shown in UI when bot is in use.
+
+you may also read 'documentation of errors' that might help you if you run into any errors.
