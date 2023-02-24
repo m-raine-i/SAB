@@ -1,5 +1,4 @@
 gTTS==2.2.4
-neuralintents==0.0.4
 nltk==3.7
 numpy==1.23.4
 playsound==1.2.2
