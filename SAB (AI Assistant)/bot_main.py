@@ -1,25 +1,27 @@
 from tkinter import *
 import os, sys
+import eng.py
+import fil.py
 
-def mainMenu():
-    print ("1. English")
-    print ("2. Filipino")
-    print ("3. Quit")
-    selection=int(input("English or Filipino?: "))
-    if selection==1:
-        eng()
-    elif selection==2:
-        fil()
-    elif selection==3:
-        sys.exit(0)
-    else:
-        print("Please choose between Filipino or English.")
-        mainMenu()
+wn = tkinter.Tk() 
+wn.title("Student Assistant Bot")
+wn.geometry('700x300')
 
-def eng():
-    os.system('python3 english.py')
-def fil():
-    os.system('python3 filipino.py')
+photo = PhotoImage(file = "star.png")
+wn.iconphoto(False, photo)
 
-mainMenu()
+wn.config(bg='Maroon')
+  
+Label(wn, text='How do you want to communicate with the bot?', bg='Maroon',
+      fg='white', font=('Courier', 15)).place(x=120, y=10)
+
+#Button to convert PDF to Audio form
+Button(wn, text="English", bg='Goldenrod',font=('Courier', 15),
+       command=eng_voice).place(x=150, y=100) 
+
+Button(wn, text="Filipino", bg='Goldenrod',font=('Courier', 15),
+       command=fil_voice).place(x=300, y=100) 
+
+
+wn.mainloop()
 
