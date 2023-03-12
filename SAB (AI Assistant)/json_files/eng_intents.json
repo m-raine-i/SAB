@@ -1,0 +1,37 @@
+{"intents": [
+  {"id": "1",
+  "tag": "greetings",
+  "patterns": ["Hey SAB", "Saab", "Hi SAB", "yow", "Hello"],
+  "responses": ["Hello! What can I do for you?", "Good day! I am fine. How may I help you today?", "Hi there! How can I help you?"],
+  "qr_code": ""
+  },
+
+  {"id": "2",
+  "tag": "name",
+  "patterns": ["What's your name?", "Who are you?", "What are you called?", "Are you a robot?"],
+  "responses": ["I am the Student Assistant Bot or you can call me SAB for short.", "I am SAB, an AI voice assistant."],
+  "qr_code": ""
+  },
+
+  {"id": "3",
+  "tag": "ace add",
+  "patterns": ["ace form for add subject", "add sub", "add subject", "add subject ace form"],
+  "responses": ["Please scan the QR code. You may answer this form by filling out the subjects that you need to add during the adjustment period. Thank you."],
+  "qr_code": "ACE Form ADD.png"
+  },
+
+  {"id": "4",
+  "tag": "appointment",
+  "patterns": ["appointment", "Can I request for appointment?", "appointment system", "How can I get an appointment?"],
+  "responses": ["Please scan the QR code. After logging in, choose the 'Request Appointment' and 'Avail P.U.P Services'. Set an appointment to the 'Institute of Technology Registrar and Admission'. After setting an appointment, please wait for two to three days to process your documents. Thank you."],
+  "qr_code": "Appointment System.png"
+  },
+
+  {"id": "5",
+  "tag": "thanks",
+  "patterns": ["thank you", "thanks", "thanks a bunch"],
+  "responses": ["Happy to help!", "No problem!", "You're welcome!"],
+  "qr_code": ""
+  }
+  ]
+}
