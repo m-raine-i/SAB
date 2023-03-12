@@ -147,7 +147,7 @@ def get_audio():
 
 
 
-def eng_voice():
+def fil_voice():
     print("Nagsisimula...")
     print("Handa na ang bot!")
     bigkas("Magandang araw! Ano ang matutulong ko sayo?")
@@ -202,6 +202,6 @@ Label(wn, text='Please press the button to start.', bg='Maroon',
 
 #Button to convert PDF to Audio form
 Button(wn, text="Simulan", bg='Goldenrod',font=('Courier', 15),
-       command=eng_voice).place(x=300, y=100) ######original
+       command=fil_voice).place(x=300, y=100) ######original
 
 wn.mainloop()
