@@ -1,0 +1,2 @@
+-cmd output for bot_main.py (for both eng and fil outputs)
+-continuation of program if the qr code file has been closed by the user

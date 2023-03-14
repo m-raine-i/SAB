@@ -1,0 +1,81 @@
+{
+    "intents": [
+        {
+            "id": "vwt3sdoqgvogpw8f02o0vxa959zemf74",
+            "tag": "greetings",
+            "patterns": [
+                "Hey SAB",
+                "Saab",
+                "Hi SAB",
+                "yow",
+                "Hello",
+                "Kamusta ka",
+                "Kumusta",
+                "Kumusta ka ngayon?"
+            ],
+            "responses": [
+                "Magandang araw iskolar, ako ay nasa mabuting kalagayan. Ano ang maitutulong ko sayo?",
+                "Magandang araw, paano po kita matutulungan ngayon?"
+            ],
+            "qr_code": ""
+        },
+        {
+            "id": "q1aw81cqzs9i9i7owdvg69edtijftpv8",
+            "tag": "name",
+            "patterns": [
+                "Anong pangalan mo?",
+                "Sino ka?",
+                "Anong tawag sayo?",
+                "Robot ka ba?"
+            ],
+            "responses": [
+                "Ako ay ang Student Assistant Bot o si Sab.",
+                "Ako si SAB, isang AI voice assistant."
+            ],
+            "qr_code": ""
+        },
+        {
+            "id": "36cz6ubpdnrowcvbnsq80g8a8u8fnr7d",
+            "tag": "ace add",
+            "patterns": [
+                "ace form for add subject",
+                "add sub",
+                "add subject",
+                "add subject ace form"
+            ],
+            "responses": [
+                "Pa-scan po ng QR code. Maaaring sagutan ang ACE Form para sa pagdagdag ng mga asignatura. Maraming salamat."
+            ],
+            "qr_code": "ACE Form ADD.png"
+        },
+        {
+            "id": "n4p0qvdpk6458vt4fagf9pa29wcvbv1l",
+            "tag": "appointment",
+            "patterns": [
+                "appointment",
+                "Can I request for appointment?",
+                "appointment system",
+                "How can I get an appointment?"
+            ],
+            "responses": [
+                "Pa-scan po ng QR code. Pagkatapos mag-log in, piliin ang 'Request Appointment' at ang 'Avail P.U.P. Services'. Magtakda ng appointment sa 'Institute of Technology Registrar and Admission'. Maaaring maghintay na lamang ng dalawa hanggang tatlong araw upang maiproseso ang iyong dokumento. Maraming salamat."
+            ],
+            "qr_code": "Appointment System.png"
+        },
+        {
+            "id": "66392e2c-095e-4b11-9321-d1c1755b4782",
+            "tag": "thanks",
+            "patterns": [
+                "salamat",
+                "maraming salamat",
+                "thanks",
+                "thank you"
+            ],
+            "responses": [
+                "walang anuman",
+                "hanggang sa mauulit"
+            ],
+            "qr_code": ""
+        }
+    ]
+}
