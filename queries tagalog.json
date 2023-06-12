@@ -1,0 +1,10 @@
+[
+    {
+        "query": "test",
+        "response": "test"
+    },
+    {
+        "query": "tagalog",
+        "response": "filipino"
+    }
+]
