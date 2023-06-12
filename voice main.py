@@ -11,7 +11,7 @@ def fil():
 def choose_language():
     root = tk.Tk()
     root.title("Student Assistant Bot")
-    root.geometry("300x180")
+    root.geometry("300x230")
     root.configure(bg='Maroon')
 
     def on_eng_selected():
@@ -24,6 +24,10 @@ def choose_language():
         root.destroy()
         fil()
 
+    def on_exit():
+        if messagebox.askyesno("Exit", "Are you sure you want to exit?"):
+            root.destroy()
+
     label = tk.Label(root, text="Choose your preferred language \n (Mamili ng iyong gustong wika)", bg='lightgray', font=("Consolas", 12))
     label.pack(pady=10)
 
@@ -32,6 +36,9 @@ def choose_language():
 
     filipino_button = tk.Button(root, text="Filipino", width=20, height=2, command=on_fil_selected)
     filipino_button.pack(pady=5)
+
+    exit_button = tk.Button(root, text="Exit", width=20, height=2, command=on_exit)
+    exit_button.pack(pady=5)
 
     root.mainloop()
 
