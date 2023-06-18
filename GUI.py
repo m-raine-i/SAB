@@ -5,7 +5,6 @@ from tkinter import messagebox, filedialog
 
 queries = []
 file_path = ""
-query_listbox = None
 
 def load_queries():
     file_path = filedialog.askopenfilename(filetypes=[("JSON Files", "*.json")])
@@ -32,7 +31,7 @@ def add_query():
     query = query_entry.get()
     response = response_entry.get()
     qr_code_path = filedialog.askopenfilename(filetypes=[("Image Files", "*.png;*.jpg;*.jpeg")])
-
+    
     if query and response:
         query_data = {"query": query, "response": response}
         if qr_code_path:
@@ -57,10 +56,8 @@ def select_query(event):
                 response_entry.delete(0, tk.END)
                 query_entry.insert(tk.END, query_data["query"])
                 response_entry.insert(tk.END, query_data["response"])
-                if "qr_code_path" in query_data:
-                    qr_code_path_label.configure(text=query_data["qr_code_path"])
-                else:
-                    qr_code_path_label.configure(text="")
+                qr_code_path_label_value.configure(text=query_data.get("qr_code_path", ""))
+                break
 
 def update_query():
     selected_query = query_listbox.get(tk.ACTIVE)
@@ -98,7 +95,7 @@ def change_json_file():
     update_listbox()
 
 def initialize_gui():
-    global queries, file_path, query_listbox
+    global queries, file_path, query_listbox, query_entry, response_entry, qr_code_path_label, qr_code_path_label_value
 
     queries, file_path = load_queries()
     if not queries:
@@ -115,28 +112,25 @@ def initialize_gui():
     root.grid_rowconfigure(1, weight=0)
 
     input_frame = LabelFrame(root, text='Student Assistant Bot (SAB)', bg="lightgray", font=('Consolas', 14))
-    input_frame.grid(row=0, column=0, padx=10, pady=10, sticky="nsew")
+    input_frame.grid(row=0, column=0, padx=5, pady=5, sticky="nsew")
 
     query_label = Label(input_frame, text="Query", font=('Consolas', 14))
-    query_label.grid(row=0, column=0, padx=5, pady=10, sticky="w")
+    query_label.grid(row=0, column=0, padx=5, pady=5, sticky="w")
 
     query_entry = Entry(input_frame, width=40, borderwidth=2, fg="black", font=('Consolas', 14))
-    query_entry.grid(row=0, column=1, padx=5, pady=10, sticky="w")
+    query_entry.grid(row=0, column=1, padx=5, pady=5, sticky="w")
 
     response_label = Label(input_frame, text="Response", font=('Consolas', 14))
-    response_label.grid(row=1, column=0, padx=5, pady=10, sticky="w")
+    response_label.grid(row=1, column=0, padx=5, pady=5, sticky="w")
 
     response_entry = Entry(input_frame, width=40, borderwidth=2, fg="black", font=('Consolas', 14))
     response_entry.grid(row=1, column=1, padx=5, pady=5, sticky="w")
 
-    qr_code_path_label = Label(input_frame, text="QR Code File Path", font=('Consolas', 14))
-    qr_code_path_label.grid(row=2, column=0, padx=5, pady=10, sticky="w")
+    qr_code_path_label = Label(input_frame, text="QR Code \n File Path", font=('Consolas', 12))
+    qr_code_path_label.grid(row=2, column=0, padx=5, pady=5, sticky="w")
 
-    qr_code_path_label_value = Label(input_frame, text="", font=('Consolas', 12))
-    qr_code_path_label_value.grid(row=2, column=1, padx=5, pady=10, sticky="w")
-
-    instruction_label = Label(input_frame, text="In the file selection, click the 'Cancel' button if you choose not to add a QR code file nor update the existing QR code in an existing query.", font=('Consolas', 10, 'italic'))
-    instruction_label.grid(row=3, column=0, columnspan=2, padx=5, pady=10, sticky="w")
+    qr_code_path_label_value = Label(input_frame, text="", font=('Consolas', 10))
+    qr_code_path_label_value.grid(row=2, column=1, padx=5, pady=5, sticky="w")
 
     query_listbox = tk.Listbox(root, width=80, height=10, font=('Consolas', 14))
     query_listbox.grid(row=1, column=0, padx=10, pady=10, sticky="nsew")
