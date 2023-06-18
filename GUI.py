@@ -31,7 +31,7 @@ def add_query():
     query = query_entry.get()
     response = response_entry.get()
     qr_code_path = filedialog.askopenfilename(filetypes=[("Image Files", "*.png;*.jpg;*.jpeg")])
-    
+
     if query and response:
         query_data = {"query": query, "response": response}
         if qr_code_path:
@@ -105,7 +105,7 @@ def initialize_gui():
 
     root = tk.Tk()
     root.title('List of Queries')
-    root.geometry("800x480")  # Set the main window size to 800x480 pixels
+    root.geometry("800x480")
     root.configure(bg='Maroon')
 
     root.grid_columnconfigure(0, weight=1)
@@ -115,18 +115,18 @@ def initialize_gui():
     root.grid_rowconfigure(2, weight=1)
 
     input_frame = LabelFrame(root, text='Student Assistant Bot (SAB)', bg="lightgray", font=('Consolas', 14))
-    input_frame.grid(row=0, column=0, padx=10, pady=10, sticky="nsew", columnspan=2)
+    input_frame.grid(row=0, column=1, padx=10, pady=10, sticky="nsew")
 
     query_label = Label(input_frame, text="Query", font=('Consolas', 14))
     query_label.grid(row=0, column=0, padx=5, pady=10, sticky="w")
 
-    query_entry = Entry(input_frame, width=40, borderwidth=2, fg="black", font=('Consolas', 14))  # Adjust the entry width
+    query_entry = Entry(input_frame, width=40, borderwidth=2, fg="black", font=('Consolas', 14))
     query_entry.grid(row=0, column=1, padx=5, pady=10, sticky="w")
 
     response_label = Label(input_frame, text="Response", font=('Consolas', 14))
     response_label.grid(row=1, column=0, padx=5, pady=10, sticky="w")
 
-    response_entry = Entry(input_frame, width=40, borderwidth=2, fg="black", font=('Consolas', 14))  # Adjust the entry width
+    response_entry = Entry(input_frame, width=40, borderwidth=2, fg="black", font=('Consolas', 14))
     response_entry.grid(row=1, column=1, padx=5, pady=5, sticky="w")
 
     qr_code_path_label = Label(input_frame, text="QR Code File Path", font=('Consolas', 14))
@@ -138,25 +138,25 @@ def initialize_gui():
     instruction_label = Label(input_frame, text="In the file selection, click the 'Cancel' button if you choose not to add a QR code file nor update the existing QR code in an existing query.", font=('Consolas', 10, 'italic'))
     instruction_label.grid(row=3, column=0, columnspan=2, padx=5, pady=10, sticky="w")
 
-    query_listbox = tk.Listbox(root, width=80, height=12, font=('Consolas', 14))  # Adjust the listbox width and height
-    query_listbox.grid(row=1, column=0, padx=10, pady=10, sticky="nsew", rowspan=2, columnspan=2)
+    query_listbox = tk.Listbox(root, width=60, height=10, font=('Consolas', 14))
+    query_listbox.grid(row=2, column=1, padx=10, pady=10, sticky="nsew")
 
     button_frame = Frame(root, bg="Maroon")
-    button_frame.grid(row=3, column=0, padx=10, pady=10, columnspan=2)
+    button_frame.grid(row=1, column=1, padx=2, pady=10)
 
-    add_button = tk.Button(button_frame, text="Add Query", width=15, height=2, command=add_query)  # Adjust the button width
+    add_button = tk.Button(button_frame, text="Add Query", width=15, height=2, command=add_query)
     add_button.pack(side="left", padx=5)
 
-    update_button = tk.Button(button_frame, text="Update Query", width=15, height=2, command=update_query)  # Adjust the button width
+    update_button = tk.Button(button_frame, text="Update Query", width=15, height=2, command=update_query)
     update_button.pack(side="left", padx=5)
 
-    delete_button = tk.Button(button_frame, text="Delete Query", width=15, height=2, command=delete_query)  # Adjust the button width
+    delete_button = tk.Button(button_frame, text="Delete Query", width=15, height=2, command=delete_query)
     delete_button.pack(side="left", padx=5)
 
-    save_button = tk.Button(button_frame, text="Save Queries", width=15, height=2, command=save_queries)  # Adjust the button width
+    save_button = tk.Button(button_frame, text="Save Queries", width=15, height=2, command=save_queries)
     save_button.pack(side="left", padx=5)
 
-    change_json_button = tk.Button(button_frame, text="Change JSON File", width=15, height=2, command=change_json_file)  # Adjust the button width
+    change_json_button = tk.Button(button_frame, text="Change JSON File", width=15, height=2, command=change_json_file)
     change_json_button.pack(side="left", padx=5)
 
     update_listbox()
