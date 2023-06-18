@@ -46,10 +46,9 @@ def get_audio():
 
 print("Start")
 speak("Good day! How may I help you?")
-queries = load_queries("/home/pi/Desktop/voiceenglish.json")
+queries = load_queries("/home/pi@SAB/Desktop/SAB/queries english.json")
 
-running = True
-while running:
+while True:
     print("Understanding....")
     salita = get_audio()
 
@@ -68,8 +67,9 @@ while running:
             break
 
     if not found:
-        speak("I cannot understand you.")
+        print("I cannot understand you.")
+        continue
 
     if any(word in salita for word in ["quit", "exit", "bye"]):
         speak("Goodbye!")
-        running = False
+        break
