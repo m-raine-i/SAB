@@ -5,6 +5,7 @@ from tkinter import messagebox, filedialog
 
 queries = []
 file_path = ""
+query_listbox = None
 
 def load_queries():
     file_path = filedialog.askopenfilename(filetypes=[("JSON Files", "*.json")])
@@ -97,7 +98,7 @@ def change_json_file():
     update_listbox()
 
 def initialize_gui():
-    global queries, file_path, query_listbox, query_entry, response_entry, qr_code_path_label
+    global queries, file_path, query_listbox  # Add query_listbox to global variables
 
     queries, file_path = load_queries()
     if not queries:
@@ -128,6 +129,9 @@ def initialize_gui():
 
     response_entry = Entry(input_frame, width=40, borderwidth=2, fg="black", font=('Consolas', 14))
     response_entry.grid(row=1, column=1, padx=5, pady=5, sticky="w")
+    
+    query_listbox = tk.Listbox(root, width=60, height=10, font=('Consolas', 14))
+    query_listbox.grid(row=2, column=1, padx=10, pady=10, sticky="nsew")
 
     qr_code_path_label = Label(input_frame, text="QR Code File Path", font=('Consolas', 14))
     qr_code_path_label.grid(row=2, column=0, padx=5, pady=10, sticky="w")
