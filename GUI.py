@@ -144,7 +144,7 @@ def initialize_gui():
     query_listbox.grid(row=2, column=0, columnspan=3, padx=10, pady=10, sticky="nsew")
 
     button_frame = Frame(root, bg="Maroon")
-    button_frame.grid(row=1, column=1, padx=2, pady=10, sticky="nsew")
+    button_frame.grid(row=1, column=0, columnspan=3, padx=2, pady=10, sticky="nsew")
 
     button_font = ('Consolas', 12)  # Adjust the font size here
 
