@@ -110,12 +110,12 @@ def initialize_gui():
     root.configure(bg='Maroon')
 
     root.grid_columnconfigure(0, weight=1)
+    root.grid_columnconfigure(1, weight=0)
     root.grid_rowconfigure(0, weight=1)
-    root.grid_rowconfigure(1, weight=5)
-    root.grid_rowconfigure(2, weight=0)
+    root.grid_rowconfigure(1, weight=0)
 
     input_frame = LabelFrame(root, text='Student Assistant Bot (SAB)', bg="lightgray", font=('Consolas', 14))
-    input_frame.grid(row=1, column=0, padx=10, pady=10, sticky="nsew")
+    input_frame.grid(row=0, column=0, padx=10, pady=10, sticky="nsew")
 
     query_label = Label(input_frame, text="Query", font=('Consolas', 14))
     query_label.grid(row=0, column=0, padx=5, pady=10, sticky="w")
@@ -132,39 +132,37 @@ def initialize_gui():
     qr_code_path_label = Label(input_frame, text="QR Code File Path", font=('Consolas', 14))
     qr_code_path_label.grid(row=2, column=0, padx=5, pady=10, sticky="w")
 
-    qr_code_path_value_label = Label(input_frame, text="", font=('Consolas', 12))
-    qr_code_path_value_label.grid(row=2, column=1, columnspan=2, padx=5, pady=10, sticky="w")
+    qr_code_path_label_value = Label(input_frame, text="", font=('Consolas', 12))
+    qr_code_path_label_value.grid(row=2, column=1, padx=5, pady=10, sticky="w")
 
     instruction_label = Label(input_frame, text="In the file selection, click the 'Cancel' button if you choose not to add a QR code file nor update the existing QR code in an existing query.", font=('Consolas', 10, 'italic'))
     instruction_label.grid(row=3, column=0, columnspan=2, padx=5, pady=10, sticky="w")
 
-    query_listbox = tk.Listbox(root, width=80, height=5, font=('Consolas', 12))
-    query_listbox.grid(row=2, column=0, padx=10, pady=10, sticky="nsew")
+    query_listbox = tk.Listbox(root, width=80, height=10, font=('Consolas', 14))
+    query_listbox.grid(row=1, column=0, padx=10, pady=10, sticky="nsew")
 
     button_frame = Frame(root, bg="Maroon")
-    button_frame.grid(row=2, column=1, padx=10, pady=10, sticky="nsew")
+    button_frame.grid(row=0, column=1, rowspan=2, padx=10, pady=10, sticky="nsew")
 
-    button_font = ('Consolas', 12)  # Adjust the font size here
+    add_button = tk.Button(button_frame, text="Add Query", width=15, height=2, font=('Consolas', 10), command=add_query)
+    add_button.pack(side="top", pady=5)
 
-    add_button = tk.Button(button_frame, text="Add Query", width=10, height=1, font=button_font, command=add_query)
-    add_button.pack(side="left", padx=5)
+    update_button = tk.Button(button_frame, text="Update Query", width=15, height=2, font=('Consolas', 10), command=update_query)
+    update_button.pack(side="top", pady=5)
 
-    update_button = tk.Button(button_frame, text="Update Query", width=10, height=1, font=button_font, command=update_query)
-    update_button.pack(side="left", padx=5)
+    delete_button = tk.Button(button_frame, text="Delete Query", width=15, height=2, font=('Consolas', 10), command=delete_query)
+    delete_button.pack(side="top", pady=5)
 
-    delete_button = tk.Button(button_frame, text="Delete Query", width=10, height=1, font=button_font, command=delete_query)
-    delete_button.pack(side="left", padx=5)
+    save_button = tk.Button(button_frame, text="Save Queries", width=15, height=2, font=('Consolas', 10), command=save_queries)
+    save_button.pack(side="top", pady=5)
 
-    save_button = tk.Button(button_frame, text="Save Queries", width=10, height=1, font=button_font, command=save_queries)
-    save_button.pack(side="left", padx=5)
-
-    change_json_button = tk.Button(button_frame, text="Change JSON File", width=10, height=1, font=button_font, command=change_json_file)
-    change_json_button.pack(side="left", padx=5)
+    change_json_button = tk.Button(button_frame, text="Change JSON File", width=15, height=2, font=('Consolas', 10), command=change_json_file)
+    change_json_button.pack(side="top", pady=5)
 
     update_listbox()
 
     root.mainloop()
-
-
+    
+    
 if __name__ == '__main__':
     initialize_gui()
