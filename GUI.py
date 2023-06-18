@@ -146,19 +146,21 @@ def initialize_gui():
     button_frame = Frame(root, bg="Maroon")
     button_frame.grid(row=1, column=1, padx=2, pady=10, sticky="nsew")
 
-    add_button = tk.Button(button_frame, text="Add Query", width=15, height=2, command=add_query)
+    button_font = ('Consolas', 12)  # Adjust the font size here
+
+    add_button = tk.Button(button_frame, text="Add Query", width=10, height=1, font=button_font, command=add_query)
     add_button.pack(side="left", padx=5)
 
-    update_button = tk.Button(button_frame, text="Update Query", width=15, height=2, command=update_query)
+    update_button = tk.Button(button_frame, text="Update Query", width=10, height=1, font=button_font, command=update_query)
     update_button.pack(side="left", padx=5)
 
-    delete_button = tk.Button(button_frame, text="Delete Query", width=15, height=2, command=delete_query)
+    delete_button = tk.Button(button_frame, text="Delete Query", width=10, height=1, font=button_font, command=delete_query)
     delete_button.pack(side="left", padx=5)
 
-    save_button = tk.Button(button_frame, text="Save Queries", width=15, height=2, command=save_queries)
+    save_button = tk.Button(button_frame, text="Save Queries", width=10, height=1, font=button_font, command=save_queries)
     save_button.pack(side="left", padx=5)
 
-    change_json_button = tk.Button(button_frame, text="Change JSON File", width=15, height=2, command=change_json_file)
+    change_json_button = tk.Button(button_frame, text="Change JSON File", width=10, height=1, font=button_font, command=change_json_file)
     change_json_button.pack(side="left", padx=5)
 
     update_listbox()
