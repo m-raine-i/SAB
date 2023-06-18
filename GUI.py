@@ -130,17 +130,17 @@ def initialize_gui():
 
     response_entry = Entry(input_frame, width=40, borderwidth=2, fg="black", font=('Consolas', 14))
     response_entry.grid(row=1, column=1, padx=5, pady=5, sticky="w")
-   
+
     qr_code_path_label = Label(input_frame, text="QR Code File Path", font=('Consolas', 14))
     qr_code_path_label.grid(row=2, column=0, padx=5, pady=10, sticky="w")
 
-    qr_code_path_label = Label(input_frame, text="", font=('Consolas', 12))
-    qr_code_path_label.grid(row=2, column=1, columnspan=2, padx=5, pady=10, sticky="w")
+    qr_code_path_value_label = Label(input_frame, text="", font=('Consolas', 12))
+    qr_code_path_value_label.grid(row=2, column=1, columnspan=2, padx=5, pady=10, sticky="w")
 
     instruction_label = Label(input_frame, text="In the file selection, click the 'Cancel' button if you choose not to add a QR code file nor update the existing QR code in an existing query.", font=('Consolas', 10, 'italic'))
     instruction_label.grid(row=3, column=0, columnspan=2, padx=5, pady=10, sticky="w")
 
-    query_listbox = tk.Listbox(root, width=80, height=15, font=('Consolas', 12))
+    query_listbox = tk.Listbox(root, width=80, height=12, font=('Consolas', 12))
     query_listbox.grid(row=2, column=0, columnspan=2, padx=10, pady=10, sticky="nsew")
 
     button_frame = Frame(root, bg="Maroon")
