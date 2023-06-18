@@ -27,6 +27,7 @@ def bigkas(args):
     mixer.music.play()
     print(args)
     time.sleep(1)
+    mixer.music.stop()
     os.remove(audio_file)
 
 def get_audio():
@@ -46,7 +47,7 @@ def get_audio():
 
 print("Simula")
 bigkas("Magandang araw Iskolar! Ano ang maitutulong ko?")
-queries = load_queries("/home/pi/Desktop/voicetagalog.json")
+queries = load_queries("/home/pi@SAB/Desktop/SAB/queries tagalog.json")
 
 running = True
 while running:
@@ -68,7 +69,8 @@ while running:
             break
 
     if not found:
-        bigkas("Hindi kita maintindihan.")
+        print("Hindi kita maintindihan.")
+        break
 
     if any(word in salita for word in ["quit", "exit", "bye"]):
         bigkas("Paalam!")
