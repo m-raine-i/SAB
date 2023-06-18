@@ -30,7 +30,7 @@ def save_queries():
 def add_query():
     query = query_entry.get()
     response = response_entry.get()
-    qr_code_path = filedialog.askopenfilename(filetypes=[("Image Files", "*.png;*.jpg;*.jpeg")])
+    qr_code_path = filedialog.askopenfilename(filetypes=[("Image Files", "*.png;*.jpg;*.jpeg"), ("PNG Files", "*.png")])
     
     if query and response:
         query_data = {"query": query, "response": response}
