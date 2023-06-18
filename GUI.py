@@ -138,25 +138,34 @@ def initialize_gui():
     instruction_label = Label(input_frame, text="In the file selection, click the 'Cancel' button if you choose not to add a QR code file nor update the existing QR code in an existing query.", font=('Consolas', 10, 'italic'))
     instruction_label.grid(row=3, column=0, columnspan=2, padx=5, pady=10, sticky="w")
 
-    query_listbox = tk.Listbox(root, width=60, height=10, font=('Consolas', 14))
-    query_listbox.grid(row=2, column=1, padx=10, pady=10, sticky="nsew")
+    query_listbox_frame = Frame(root)
+    query_listbox_frame.grid(row=2, column=1, padx=10, pady=10, sticky="nsew")
+
+    query_listbox = Listbox(query_listbox_frame, width=60, height=10, font=('Consolas', 14))
+    query_listbox.pack(side="left", fill="both", expand=True)
+
+    query_listbox_scrollbar = Scrollbar(query_listbox_frame, orient="vertical")
+    query_listbox_scrollbar.pack(side="right", fill="y")
+
+    query_listbox.config(yscrollcommand=query_listbox_scrollbar.set)
+    query_listbox_scrollbar.config(command=query_listbox.yview)
 
     button_frame = Frame(root, bg="Maroon")
     button_frame.grid(row=1, column=1, padx=2, pady=10)
 
-    add_button = tk.Button(button_frame, text="Add Query", width=15, height=2, command=add_query)
+    add_button = Button(button_frame, text="Add Query", width=15, height=2, command=add_query)
     add_button.pack(side="left", padx=5)
 
-    update_button = tk.Button(button_frame, text="Update Query", width=15, height=2, command=update_query)
+    update_button = Button(button_frame, text="Update Query", width=15, height=2, command=update_query)
     update_button.pack(side="left", padx=5)
 
-    delete_button = tk.Button(button_frame, text="Delete Query", width=15, height=2, command=delete_query)
+    delete_button = Button(button_frame, text="Delete Query", width=15, height=2, command=delete_query)
     delete_button.pack(side="left", padx=5)
 
-    save_button = tk.Button(button_frame, text="Save Queries", width=15, height=2, command=save_queries)
+    save_button = Button(button_frame, text="Save Queries", width=15, height=2, command=save_queries)
     save_button.pack(side="left", padx=5)
 
-    change_json_button = tk.Button(button_frame, text="Change JSON File", width=15, height=2, command=change_json_file)
+    change_json_button = Button(button_frame, text="Change JSON File", width=15, height=2, command=change_json_file)
     change_json_button.pack(side="left", padx=5)
 
     update_listbox()
