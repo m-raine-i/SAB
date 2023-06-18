@@ -98,7 +98,7 @@ def change_json_file():
     update_listbox()
 
 def initialize_gui():
-    global queries, file_path, query_listbox  # Add query_listbox to global variables
+    global queries, file_path, query_listbox
 
     queries, file_path = load_queries()
     if not queries:
@@ -110,6 +110,7 @@ def initialize_gui():
     root.configure(bg='Maroon')
 
     root.grid_columnconfigure(0, weight=1)
+    root.grid_columnconfigure(1, weight=1)
     root.grid_columnconfigure(2, weight=1)
     root.grid_rowconfigure(0, weight=1)
     root.grid_rowconfigure(1, weight=1)
