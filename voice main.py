@@ -3,15 +3,15 @@ from tkinter import messagebox
 import subprocess
 
 def eng():
-    subprocess.call(["python", "test/voice english"])
+    subprocess.call(["/usr/bin/python3", "/home/pi@SAB/Desktop/SAB/voiceenglish.py"])
 
 def fil():
-    subprocess.call(["python", "test/voice tagalog"])
+    subprocess.call(["/usr/bin/python3", "/home/pi@SAB/Desktop/SAB/voicetagalog.py"])
 
 def choose_language():
     root = tk.Tk()
     root.title("Student Assistant Bot")
-    root.geometry("300x230")
+    root.geometry("350x230")
     root.configure(bg='Maroon')
 
     def on_eng_selected():
