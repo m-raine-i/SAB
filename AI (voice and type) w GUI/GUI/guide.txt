@@ -1,2 +1,0 @@
-GUI for admin side. 
-Code that needs to be added: option to choose which file to modify (ex. if you have 2 json files) & style of the GUI
