@@ -10,7 +10,7 @@ import json
 global queries
 global file_path
 
-queries = []
+queries = [] #add another list to access 'intents' dict in json file and make it global
 file_path = ""
 
 def initialize_gui():
@@ -96,7 +96,7 @@ def load_json_from_file():
     if file_path:
         try:
             with open(file_path) as file_handler:
-                queries = json.load(file_handler)["intents"]
+                queries = json.load(file_handler)["intents"] #add the other list under this line 
                 file_handler.close()
                 load_trv_with_json()
         except Exception as e:
@@ -107,7 +107,7 @@ def save_json_to_file():
     if queries and file_path:
         try:
             with open(file_path, "w") as file_handler:
-                json.dump({"intents": queries}, file_handler, indent=4)
+                json.dump({"intents": queries}, file_handler, indent=4) 
                 file_handler.close()
                 messagebox.showinfo("Success", "Queries saved successfully.")
         except Exception as e:
