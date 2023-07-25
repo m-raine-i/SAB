@@ -51,7 +51,7 @@ def initialize_gui():
     crm_responses = Entry(left_frame, width=70, borderwidth=2, fg="black", font=('Consolas', 14))
     crm_responses.grid(row=3, column=1, padx=5, pady=5, sticky="w")
 
-    crm_qr_code = Entry(left_frame, width=70, borderwidth=2, fg="black", font=('Consolas', 14))
+    crm_qr_code = Label(left_frame, width=70, borderwidth=2, fg="black", font=('Consolas', 14))
     crm_qr_code.grid(row=4, column=1, padx=5, pady=5, sticky="w")
 
     trv = ttk.Treeview(right_frame, columns=(1, 2, 3, 4, 5), show="headings", height=16)
