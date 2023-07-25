@@ -1,10 +1,15 @@
 from tkinter import *
-from tkinter import ttk, messagebox, filedialog
-import json
+from tkinter import ttk
+from tkinter import messagebox, filedialog
 import os
+from os import listdir, remove
+from os.path import isfile, join
 import uuid
+import json
 
-my_data_list = []
+global queries
+global file_path
+
 queries = []
 file_path = ""
 
@@ -111,50 +116,75 @@ def save_json_to_file():
         messagebox.showwarning("Warning", "No queries to save or file path not set.")
 
 def add_entry():
-    global my_data_list
-    guid_value = str(uuid.uuid4())
-    tag = crm_tag.get()
-    patterns = crm_patterns.get()
-    responses = crm_responses.get()
-    qr_code = crm_qr_code.get()
-
-    if tag:
-        my_data_list.append({
-            "id": guid_value,
-            "tag": tag,
-            "patterns": patterns.split("//"),
-            "responses": responses.split("//"),
-            "qr_code": qr_code
-        })
-        load_trv_with_json()
-        clear_all_fields()
-    else:
-        messagebox.showwarning("Warning", "Tag field cannot be empty.")
-
-def update_entry():
-    global my_data_list
+    global queries
     guid_value = id_value.get()
     tag = crm_tag.get()
     patterns = crm_patterns.get()
     responses = crm_responses.get()
-    qr_code = crm_qr_code.get()
+    qr_code_path = filedialog.askopenfilename(filetypes=[("Image Files", "*.png")])
 
-    if tag:
-        for entry in my_data_list:
-            if entry["id"] == guid_value:
-                entry.update({
-                    "tag": tag,
-                    "patterns": patterns.split("//"),
-                    "responses": responses.split("//"),
-                    "qr_code": qr_code
-                })
+    if len(tag) == 0:
+        change_background_color("#FFB2AE")
+        return
+
+    process_request("_INSERT_", guid_value, tag, patterns, responses, qr_code_path)
+
+def update_entry():
+    global queries
+    guid_value = id_value.get()
+    tag = crm_tag.get()
+    patterns = crm_patterns.get()
+    responses = crm_responses.get()
+    qr_code_path = filedialog.askopenfilename(filetypes=[("Image Files", "*.png")])
+
+    if len(tag) == 0:
+        change_background_color("#FFB2AE")
+        return
+
+    process_request("_UPDATE_", guid_value, tag, patterns, responses, qr_code_path)
+
+def process_request(command_type, guid_value, tag, patterns, responses, qr_code_path):
+    global queries
+
+    if command_type == "_UPDATE_":
+        row = find_row_in_queries(guid_value)
+        if row >= 0:
+            queries[row] = {
+                "id": guid_value,
+                "tag": tag,
+                "patterns": patterns.split("//"),
+                "responses": responses.split("//"),
+                "qr_code": qr_code_path
+            }
+            crm_qr_code.delete(0, END)
+            crm_qr_code.insert(0, qr_code_path)
+            qr_code_label.config(text=qr_code_path)
+            
+    elif command_type == "_INSERT_":
+        dict = {
+            "id": guid_value,
+            "tag": tag,
+            "patterns": patterns.split("//"),
+            "responses": responses.split("//"),
+            "qr_code": qr_code_path
+        }
+        queries.append(dict)
+
+        crm_qr_code.delete(0, END)
+        crm_qr_code.insert(0, qr_code_path)
+        qr_code_label.config(text=qr_code_path)
+
+    if queries and file_path:
+        try:
+            with open(file_path, "w") as file_handler:
+                json.dump({"intents": queries}, file_handler, indent=4)
+                file_handler.close()
                 load_trv_with_json()
-                clear_all_fields()
-                break
-        else:
-            messagebox.showwarning("Warning", "Entry not found.")
+                messagebox.showinfo("Success", "Queries saved successfully.")
+        except Exception as e:
+            messagebox.showerror("Error", str(e))
     else:
-        messagebox.showwarning("Warning", "Tag field cannot be empty.")
+        messagebox.showwarning("Warning", "No queries to save or file path not set.")
 
 def delete_entry():
     global my_data_list
