@@ -35,7 +35,7 @@ def initialize_gui():
     Label(left_frame, text="Tag", font=('Consolas', 14)).grid(row=1, column=0, padx=5, pady=5, sticky="w")
     Label(left_frame, text="Patterns", font=('Consolas', 14)).grid(row=2, column=0, padx=5, pady=5, sticky="w")
     Label(left_frame, text="Responses", font=('Consolas', 14)).grid(row=3, column=0, padx=5, pady=5, sticky="w")
-    Label(left_frame, text="QR Codes", font=('Consolas', 14)).grid(row=4, column=0, padx=5, pady=5, sticky="w")
+    Label(left_frame, text="QR Code \n File Path", font=('Consolas', 14)).grid(row=4, column=0, padx=5, pady=5, sticky="w")
 
     id_value = StringVar()
     id_value.set(str(uuid.uuid4()))
